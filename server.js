@@ -5,6 +5,7 @@ const app = express();
 let sql;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
+app.use('/images', express.static(path.join(__dirname, 'assets')));
 app.use(express.json());
 
 // root

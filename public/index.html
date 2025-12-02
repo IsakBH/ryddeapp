@@ -1,12 +1,112 @@
 <!DOCTYPE html>
-<html lang="no">
-    <head>
-        <title>Rydding på Nett</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <link rel="stylesheet" href="/public/styling/styling.css">
-    </head>
+<html lang="en">
 
-    <body>
+<head>
+    <title>Rydding på Nett</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="styling/styling.css" />
+    <link rel="icon" href="assets/favicon.jpg" />
 
-    </body>
+    <!-- ikoner fra font awesome og google fonts-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <button class="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="document-manager">
+        <h3>Mine oppgaver</h3>
+        <button id="newDocument" class="new-doc-button">
+            <i class="fa-solid fa-plus"></i>
+            Nytt Ord dokument
+        </button>
+        <div class="search-container">
+            <i class="fa-solid fa-search"></i>
+            <input type="text" id="documentSearch" placeholder="Søk i dokumenter...">
+        </div>
+        <div class="document-list">
+            <ul id="documentsList"></ul>
+        </div>
+    </div>
+
+    <!--  containeren for toolbaren -->
+    <div class="container">
+        <h1 id="title">Rydding På Nett</h1>
+        <div id="topRightContainer">
+            <!-- menyen for konto instillinger og sånn -->
+            <div class="profile-menu">
+                <img src="../assets/default.png" alt="Profile" class="profile-picture">
+                <div class="profile-dropdown">
+                    <div class="profile-info">
+                        <p><?php echo htmlspecialchars($_SESSION['username']) . " (" . htmlspecialchars($user_id) . ")"; ?></p>
+                    </div>
+                    <hr id="splitter">
+                    <a href="pages/profile.php">Din profil</a>
+                    <a href="pages/settings.php">Instillinger</a>
+
+                    <?php
+
+                    if($user_id === 1 || $user_id === 37) {
+                        echo "<a id='admin-panel-button' href='pages/admin.php'>Admin panel</a>";
+                    }
+
+                    ?>
+
+                    <a id="logoutIndex" href="pages/logout.php">Logg ut</a>
+                    <!--<a href="">Prestasjoner? (på vei)</a>-->
+                </div>
+            </div>
+        </div>
+
+        <div class="options"> <!--  Toolbaren-->
+        </div>
+
+        <!-- input boksen der du faktisk skriver teksten-->
+        <div class="text-input" id="text-input">
+            <p id="placeholder"></p>
+        </div>
+
+        <div id="bottomtext">
+            <div> <!-- i en egen div slik at justify-content: space-between; ikke fucker med word- og charCount -->
+                <span id="wordCount">0 ord</span>
+                <span id="charCount">0 tegn</span>
+            </div>
+            <a id="version" href="pages/changelog.php"><?php echo $version; ?></a>
+        </div>
+
+        <br>
+
+        <script src="https://giscus.app/client.js"
+            data-repo="isakbh/nettside"
+            data-repo-id="R_kgDOMnNuIw"
+            data-category="Comments"
+            data-category-id="DIC_kwDOMnNuI84Cme3r"
+            data-mapping="url"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="dark"
+            data-lang="en"
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer-when-downgrade"
+            loading="lazy"
+            async>
+        </script>
+    </div>
+
+    <p id="splashText" style="<?php echo isset($_SESSION['hide_splash_text']) && $_SESSION['hide_splash_text'] ? 'display: none;' : ''; ?>"></p> <!-- splash tekst-->
+
+    <div id="cross-symbol"><i class="fa-solid fa-cross"></i></div>
+    <p id="save-status"></p>
+
+    <!-- javascript link-->
+    <script src="scripts/texteditor.js"></script>
+</body>
+
 </html>
