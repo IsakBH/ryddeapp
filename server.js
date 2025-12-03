@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 });
 
 // tilkobling til database :D
-const db = new sqlite3.Database("./ryddeApp", sqlite3.OPEN_READWRITE, (err) => {
+const db = new sqlite3.Database("./ryddeApp.db", sqlite3.OPEN_READWRITE, (err) => {
   if (err) return console.error(err.message);
 });
 
