@@ -577,6 +577,24 @@ input[type=file]::file-selector-button {
   padding: 0;
   list-style: none;
 }
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    margin-bottom: 8px;
+    background: #F0F6FC;
+    border-radius: 8px;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: all 0.2s ease;
+    border: 1px solid #ddd;
+    animation: popin 0.3s;
+    width: 100%;
+}
+
 #documentsList li {
   display: flex;
   justify-content: space-between;
