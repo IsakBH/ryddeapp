@@ -45,22 +45,16 @@
         </div>
 
         <!-- info om oppgaven og sånn-->
-        <div class="text-input" id="text-input">
+        <div id="text-input">
             <p id="placeholder"></p>
         </div>
 
         <div id="bottomtext">
-            <div> <!-- i en egen div slik at justify-content: space-between; ikke fucker med word- og charCount -->
-                <span id="wordCount">0 ord</span>
-                <span id="charCount">0 tegn</span>
-            </div>
-            <a id="version" href="pages/changelog.php"><?php echo $version; ?></a>
+            <a id="version">v0.1</a>
         </div>
     </div>
 
-    <p id="splashText" style="<?php echo isset($_SESSION['hide_splash_text']) && $_SESSION['hide_splash_text'] ? 'display: none;' : ''; ?>"></p> <!-- splash tekst-->
-
-    <div id="cross-symbol"><i class="fa-solid fa-cross"></i></div>
+    <p id="splashText"></p> <!-- splash tekst-->
     <p id="save-status"></p>
 
     <!-- javascript link-->

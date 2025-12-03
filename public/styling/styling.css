@@ -126,7 +126,7 @@ option {
   border-radius: 10px;
 }
 
-.text-input {
+#text-input {
   margin-top: 5px;
   padding: 10px;
   border: 1px solid #e0e0e0;
@@ -138,17 +138,8 @@ option {
   scrollbar-color: #8ac8ff transparent;
   font-family: inherit;
 }
-.text-input ul,
-.text-input ol {
-  padding-left: 40px;
-  margin: 0;
-}
-.text-input:focus {
+#text-input:focus {
   outline: none;
-}
-.text-input img {
-  border-radius: 10px;
-  border: none;
 }
 
 #topRightContainer {
@@ -579,23 +570,6 @@ input[type=file]::file-selector-button {
 }
 
 .task {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px;
-    margin-bottom: 8px;
-    background: #F0F6FC;
-    border-radius: 8px;
-    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    transition: all 0.2s ease;
-    border: 1px solid #ddd;
-    animation: popin 0.3s;
-    width: 100%;
-}
-
-#documentsList li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -611,24 +585,19 @@ input[type=file]::file-selector-button {
   animation: popin 0.3s;
   width: 100%;
 }
-#documentsList li:hover {
+.task:hover {
   box-shadow: 4px 0px 0px 0px #E2E2E2;
   border-color: #9f9f9f;
   background: #C6DDF4;
   width: 95%;
 }
-#documentsList li:hover .document-actions {
-  opacity: 1;
-}
-#documentsList li.active-document {
+
+.task .active-task {
   border: 2px solid #8ac8ff;
   background-color: #C6DDF4;
   filter: drop-shadow(0 0 2px #cccccc);
   animation: aktivt-dokument 0.5s;
   animation-fill-mode: forwards;
-}
-#documentsList li.active-document .document-actions {
-  opacity: 1;
 }
 
 .document-actions {
