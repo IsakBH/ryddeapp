@@ -3,15 +3,20 @@ const task_input = document.getElementById('text-input');
 const task_name_el = document.getElementById('task-name');
 const task_description_el = document.getElementById('task-description');
 const task_difficulty_el = document.getElementById('task-difficulty');
+const task_completion_status_el = document.getElementById('task-completion-status');
 const task_creator_el = document.getElementById('task-creator');
 
 async function loadTask(id) {
     const response = await fetch(`/getTask?id=${id}`);
     console.log("tuff response");
-    const task_data = await response.json();
-    console.log(task_data);
+    const task = await response.json();
+    console.log(task);
 
-
+    task_name_el.textContent = 'Oppgavenavn: ' + task.name;
+    task_description_el.textContent = 'Oppgavebeskrivelse: ' + task.description;
+    task_difficulty_el.textContent = 'Vanskelighetsgrad: ' + task.difficulty;
+    task_completion_status_el.textContent = 'Fullføringsstatus: ' + task.completed;
+    task_creator_el.textContent = 'Oppgavemester: ' + task.creatorUser;
 }
 
 async function displayTasks() {
