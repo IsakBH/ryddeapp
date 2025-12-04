@@ -1,13 +1,9 @@
 const task_list = document.getElementById('documentsList');
 const task_input = document.getElementById('text-input');
-
-/*
-<div class="task-card" id="task-name">Oppgavenavn</div>
-<div class="task-card" id="task-description">Oppgavebeskrivelse</div>
-<div class="task-card" id="task-difficulty">Vanskelighetsgrad</div>
-<div class="task-card" id="task-completionStatus">Fullføringsstatus</div>
-<div class="task-card" id="task-creator">Oppgavemester</div>
-*/
+const task_name_el = document.getElementById('task-name');
+const task_description_el = document.getElementById('task-description');
+const task_difficulty_el = document.getElementById('task-difficulty');
+const task_creator_el = document.getElementById('task-creator');
 
 async function loadTask(id) {
     const response = await fetch(`/getTask?id=${id}`);
