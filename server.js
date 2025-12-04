@@ -44,6 +44,10 @@ app.get("/getTasks", (req, res) => {
   });
 });
 
+app.get("/getTask", (req, res) => {
+    db.prepare("select * from task where id = ?".run(req.id))
+})
+
 // slett oppgave
 app.delete("/deleteTask", (req, res) => {
   try {
@@ -57,7 +61,7 @@ app.delete("/deleteTask", (req, res) => {
   }
 });
 
-// server listener på port 6767 (http://localhost:6767)
+// server listener på port 1488 (http://localhost:1488)
 const port = "1488";
-app.listen(1488);
+app.listen(port);
 console.log("yo, jeg kjører på http://localhost:" + port);

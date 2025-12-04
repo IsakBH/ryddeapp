@@ -1,3 +1,7 @@
+function loadTask(id) {
+    console.log(id)
+}
+
 const task_list = document.getElementById('documentsList');
 async function displayTasks() {
     const response = await fetch("/getTasks");
@@ -18,9 +22,9 @@ async function displayTasks() {
         /*descrSpan.classList.add("task-description");
         creatorSpan.classList.add("creator-name");*/
 
-        //task_div.addEventListener("click", slettOppgave);
+        task_div.addEventListener("click", loadTask(task.id));
 
-        console.log("laget til eventlistener");
+        console.log("lagt til eventlistener");
 
         nameSpan.textContent = task.name;
         /*descrSpan.textContent = task.description;
