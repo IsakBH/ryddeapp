@@ -8,7 +8,7 @@
 }
 
 ::selection {
-  background-color: #8AC8FF;
+  background-color: #D63638;
 }
 
 a {
@@ -129,13 +129,13 @@ option {
 #text-input {
   margin-top: 5px;
   padding: 10px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #FCF0F1;
   height: calc(100% - 180px);
   border-radius: 10px;
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: #f0f6fc;
-  scrollbar-color: #8ac8ff transparent;
+  background-color: #FFE3E4;
+  scrollbar-color: Pure red transparent;
   font-family: inherit;
 }
 #text-input:focus {
@@ -453,7 +453,7 @@ input[type=file]::file-selector-button {
   border-right: 1px solid #e0e0e0;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
   scrollbar-width: none;
-  scrollbar-color: #8ac8ff transparent;
+  scrollbar-color: #D63638 transparent;
   overflow: overlay;
   display: flex;
   transition: 0.15s;
@@ -478,7 +478,7 @@ input[type=file]::file-selector-button {
 .new-doc-button {
   width: 100%;
   height: 40px;
-  background: #8ac8ff;
+  background: #D63638;
   color: white;
   border: none;
   border-radius: 10px;
@@ -492,7 +492,7 @@ input[type=file]::file-selector-button {
   transition: all 0.2s ease;
 }
 .new-doc-button:hover {
-  background: rgb(87, 176.0256410256, 255);
+  background: #F86368;
   transform: translateY(-1px);
 }
 .new-doc-button:active {
@@ -575,7 +575,7 @@ input[type=file]::file-selector-button {
   align-items: center;
   padding: 8px;
   margin-bottom: 8px;
-  background: #F0F6FC;
+  background: #FFE3E4;
   border-radius: 8px;
   box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(6px);
@@ -587,8 +587,8 @@ input[type=file]::file-selector-button {
 }
 .task:hover {
   box-shadow: 4px 0px 0px 0px #E2E2E2;
-  border-color: #9f9f9f;
-  background: #C6DDF4;
+  border-color: #D63638;
+  background: #FFB9BC;
   width: 95%;
   cursor: pointer;
   user-select: none;
@@ -600,6 +600,15 @@ input[type=file]::file-selector-button {
   filter: drop-shadow(0 0 2px #cccccc);
   animation: aktivt-dokument 0.5s;
   animation-fill-mode: forwards;
+}
+
+.task-card {
+    background-color: #FFB9BC;
+    border: 1px solid #D63638;
+    width: 100%;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 4px;
 }
 
 .document-actions {
@@ -997,7 +1006,7 @@ input:checked + .slider:before {
   user-select: none;
   font-size: 40px;
   font-weight: 500;
-  background: linear-gradient(to right, #5091F6, #4285F4 30%, #4674C2, #3C67B6);
+  background: #D63638;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

@@ -1,11 +1,23 @@
+const task_list = document.getElementById('documentsList');
+const task_input = document.getElementById('text-input');
+
+/*
+<div class="task-card" id="task-name">Oppgavenavn</div>
+<div class="task-card" id="task-description">Oppgavebeskrivelse</div>
+<div class="task-card" id="task-difficulty">Vanskelighetsgrad</div>
+<div class="task-card" id="task-completionStatus">Fullføringsstatus</div>
+<div class="task-card" id="task-creator">Oppgavemester</div>
+*/
+
 async function loadTask(id) {
     const response = await fetch(`/getTask?id=${id}`);
     console.log("tuff response");
     const task_data = await response.json();
     console.log(task_data);
+
+
 }
 
-const task_list = document.getElementById('documentsList');
 async function displayTasks() {
     const response = await fetch("/getTasks");
     const tasks = await response.json();
