@@ -590,6 +590,7 @@ input[type=file]::file-selector-button {
   border-color: #9f9f9f;
   background: #C6DDF4;
   width: 95%;
+  cursor: pointer;
 }
 
 .task .active-task {
