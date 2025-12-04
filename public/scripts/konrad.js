@@ -6,6 +6,10 @@ const task_difficulty_el = document.getElementById('task-difficulty');
 const task_completion_status_el = document.getElementById('task-completion-status');
 const task_creator_el = document.getElementById('task-creator');
 
+async function deleteTask(e) {
+    console.log("deleting task")
+}
+
 async function loadTask(id) {
     document.querySelectorAll('#documentsList .task').forEach(task => {
         task.classList.remove('active-task');
@@ -37,31 +41,42 @@ async function displayTasks() {
     for (let task of tasks) {
         const task_div = document.createElement("div");
         console.log("laget divs")
+        const delete_button = document.createElement("button");
+        delete_button.innerHTML = '<i class="fa-solid fa-trash"></i>'
+        delete_button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            deleteTask(e);
+        })
+
         task_div.dataset.taskid = task.id;
+
         const nameSpan = document.createElement("span");
+
         console.log("laget span element")
-        /*const descrSpan = document.createElement("span");
-        const creatorSpan = document.createElement("span");*/
         task_div.classList.add("task");
         nameSpan.classList.add("task-name");
         console.log("laget til class")
-        /*descrSpan.classList.add("task-description");
-        creatorSpan.classList.add("creator-name");*/
 
         task_div.addEventListener("click", () => loadTask(task.id));
 
         console.log("lagt til eventlistener");
 
         nameSpan.textContent = task.name;
-        /*descrSpan.textContent = task.description;
-        creatorSpan.textContent = "Laget av: " + task.creatorUser;*/
         task_div.appendChild(nameSpan);
-        /*div.appendChild(document.createElement("br"));
-        div.appendChild(creatorSpan);
-        div.appendChild(document.createElement("br"));
-        div.appendChild(descrSpan);*/
+        task_div.appendChild(delete_button);
 
         task_list.appendChild(task_div);
+
+        /*
+        <div class="document-actions">
+            <button id="shareButton" onclick="shareDocument(${doc.id})" title="Del dokument">
+                <i class="fa-solid fa-share"></i>
+            </button>
+            <button onclick="deleteDocument(${doc.id})" title="Slett dokument">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </div>
+        */
     }
 }
 
