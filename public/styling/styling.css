@@ -594,12 +594,12 @@ input[type=file]::file-selector-button {
   user-select: none;
 }
 
-.task .active-task {
-  border: 2px solid #8ac8ff;
-  background-color: #C6DDF4;
-  filter: drop-shadow(0 0 2px #cccccc);
-  animation: aktivt-dokument 0.5s;
-  animation-fill-mode: forwards;
+.task.active-task {
+    border: 2px solid #D63638;
+    background-color: #FFB9BC;
+    filter: drop-shadow(0 0 2px #cccccc);
+    animation: aktivt-dokument 0.5s;
+    animation-fill-mode: forwards;
 }
 
 .task-card {

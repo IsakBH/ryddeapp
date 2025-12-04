@@ -7,6 +7,16 @@ const task_completion_status_el = document.getElementById('task-completion-statu
 const task_creator_el = document.getElementById('task-creator');
 
 async function loadTask(id) {
+    document.querySelectorAll('#documentsList .task').forEach(task => {
+        task.classList.remove('active-task');
+    });
+
+    const activeTask = document.querySelector(`#documentsList div.task[data-taskid="${id}"]`);
+
+    if (activeTask) {
+        activeTask.classList.add('active-task');
+    }
+
     const response = await fetch(`/getTask?id=${id}`);
     console.log("tuff response");
     const task = await response.json();
