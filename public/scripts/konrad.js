@@ -1,5 +1,8 @@
-function loadTask(id) {
-    console.log(id)
+async function loadTask(id) {
+    const response = await fetch(`/getTask?id=${id}`);
+    console.log("tuff response");
+    const task_data = await response.json();
+    console.log(task_data);
 }
 
 const task_list = document.getElementById('documentsList');
@@ -22,7 +25,7 @@ async function displayTasks() {
         /*descrSpan.classList.add("task-description");
         creatorSpan.classList.add("creator-name");*/
 
-        task_div.addEventListener("click", loadTask(task.id));
+        task_div.addEventListener("click", () => loadTask(task.id));
 
         console.log("lagt til eventlistener");
 

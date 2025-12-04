@@ -45,7 +45,21 @@ app.get("/getTasks", (req, res) => {
 });
 
 app.get("/getTask", (req, res) => {
-    db.prepare("select * from task where id = ?".run(req.id))
+    db.get("select * from task where id = ?", [req.query.id], (err, row) => {
+        if (err) {
+            console.error("tror lowkey det skjedde noe feil for å være helt ærlig", err.message)
+            return res.sendStatus(500).json({ error: "kunne ikke hente oppgave, bro :(" });
+        }
+        if (row) {
+            res.json(row);
+        }
+        else {
+            return res.sendStatus(404).json({ error: "bro, det var jo ingenting her?" });
+        }
+    })
+
+    db.prepare("select * from task where id = ?").run(req.query.id)
+    console.log(req.query.id)
 })
 
 // slett oppgave
