@@ -92,7 +92,7 @@ button {
   transition: transform 0.2s ease;
 }
 button:hover {
-  background-color: #FFB9BC;
+  background-color: #e19ea1;
   transform: translateY(-2px);
   box-shadow: 0px 2px 2px #ccc;
   border-color: #D63638;

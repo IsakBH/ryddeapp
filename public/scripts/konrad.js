@@ -7,7 +7,7 @@ const task_completion_status_el = document.getElementById('task-completion-statu
 const task_creator_el = document.getElementById('task-creator');
 
 async function deleteTask(e) {
-    console.log("deleting task")
+    console.log("deleting task", e)
 }
 
 async function loadTask(id) {
