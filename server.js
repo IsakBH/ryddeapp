@@ -40,7 +40,6 @@ app.get("/getTasks", (req, res) => {
   db.all(sql, [], (err, rows) => {
     if (err) return console.error(err.message);
     res.json(rows);
-    console.log(rows);
   });
 });
 
@@ -65,13 +64,12 @@ app.get("/getTask", (req, res) => {
 // slett oppgave
 app.delete("/deleteTask", (req, res) => {
   try {
-    console.log(req.body);
     const { id } = req.body;
     db.prepare("DELETE FROM task WHERE id = ?").run(id);
     return res.sendStatus(200);
   } catch (err) {
-    console.log("feil ved sletting av melding:", err);
-    return res.status(500).json({ error: "kunne ikke slette melding" });
+    console.log("feil ved sletting av oppgave:", err);
+    return res.status(500).json({ error: "kunne ikke slette oppgave" });
   }
 });
 

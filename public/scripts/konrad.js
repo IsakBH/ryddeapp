@@ -8,6 +8,12 @@ const task_creator_el = document.getElementById('task-creator');
 
 async function deleteTask(e) {
     console.log("deleting task", e)
+    const deleteTask = await fetch("/deleteTask", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: e.target.dataset.taskid })
+    })
+    displayTasks();
 }
 
 async function loadTask(id) {
@@ -36,7 +42,6 @@ async function loadTask(id) {
 async function displayTasks() {
     const response = await fetch("/getTasks");
     const tasks = await response.json();
-    console.log(tasks);
 
     for (let task of tasks) {
         const task_div = document.createElement("div");
