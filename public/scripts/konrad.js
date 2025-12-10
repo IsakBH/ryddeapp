@@ -5,6 +5,7 @@ const task_description_el = document.getElementById('task-description');
 const task_difficulty_el = document.getElementById('task-difficulty');
 const task_completion_status_el = document.getElementById('task-completion-status');
 const task_creator_el = document.getElementById('task-creator');
+const new_task_button = document.getElementById('newDoc');
 
 // createTask() form inputs
 const task_name_input = document.getElementById('task-name-input');
@@ -16,8 +17,8 @@ async function createTask(e) {
     e.preventDefault();
     const task_name = task_name_input.value.trim();
     const task_description = task_description_input.value.trim();
-    const task_creator = task_creator_input.value.trim(); // dette skal jo egentlig være en dropdown, så dette er feil, men lar det stå sånn inntil videre
-    const task_difficulty = task_difficulty_input.value.trim(); // dette skal også egentlig være en dropdown, men det er feil, men lar det stå inntil videre.
+    const task_creator = task_creator_dropdown.value.trim(); // dette skal jo egentlig være en dropdown, så dette er feil, men lar det stå sånn inntil videre
+    const task_difficulty = task_difficulty_dropdown.value.trim(); // dette skal også egentlig være en dropdown, men det er feil, men lar det stå inntil videre.
     const response = await fetch("/createTask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
