@@ -65,6 +65,7 @@ app.get("/getTask", (req, res) => {
 app.delete("/deleteTask", (req, res) => {
   try {
     const { id } = req.body;
+    console.log(id)
     db.prepare("DELETE FROM task WHERE id = ?").run(id);
     return res.sendStatus(200);
   } catch (err) {

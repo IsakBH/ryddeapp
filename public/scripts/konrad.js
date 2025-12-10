@@ -42,6 +42,7 @@ async function loadTask(id) {
 async function displayTasks() {
     const response = await fetch("/getTasks");
     const tasks = await response.json();
+    task_list.textContent = "";
 
     for (let task of tasks) {
         const task_div = document.createElement("div");
@@ -54,6 +55,8 @@ async function displayTasks() {
         })
 
         task_div.dataset.taskid = task.id;
+        task_div.setAttribute("id", task.id);
+        delete_button.dataset.taskid = task.id
 
         const nameSpan = document.createElement("span");
 
