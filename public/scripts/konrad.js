@@ -5,7 +5,7 @@ const task_description_el = document.getElementById('task-description');
 const task_difficulty_el = document.getElementById('task-difficulty');
 const task_completion_status_el = document.getElementById('task-completion-status');
 const task_creator_el = document.getElementById('task-creator');
-const new_task_button = document.getElementById('newDoc');
+const new_task_button = document.getElementById('newDocument');
 
 // createTask() form inputs
 const task_name_input = document.getElementById('task-name-input');
