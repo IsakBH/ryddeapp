@@ -7,6 +7,14 @@
   font-family: "Poppins", sans-serif;
 }
 
+dialog {
+    margin: auto auto;
+    border-radius: 10px;
+    border: none;
+    filter: drop-shadow(0 0 15px black);
+    padding: 30px;
+}
+
 ::selection {
   background-color: #D63638;
 }
