@@ -640,6 +640,7 @@ input[type=file]::file-selector-button {
   opacity: 0.4;
   transition: opacity 0.2s ease;
 }
+
 .document-actions button {
   width: 30px;
   height: 30px;
@@ -665,69 +666,6 @@ input[type=file]::file-selector-button {
   font-size: 0.9rem;
   color: #333;
   user-select: none;
-}
-
-#social {
-  width: 100%;
-  height: 40px;
-  background: #1f6feb;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  gap: 8px;
-  font-size: 1.5rem;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-#social:hover {
-  background: #2498ff;
-  transform: translateY(-1px);
-  color: white;
-  text-decoration: none;
-}
-#social:active {
-  transform: translateY(1px);
-}
-
-#changelogButton {
-  height: 40px;
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  background: #808080;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  gap: 8px;
-  font-size: 1.5rem;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-#changelogButton:hover {
-  background: rgb(153.5, 153.5, 153.5);
-  transform: translateY(-1px);
-  color: white;
-  text-decoration: none;
-}
-#changelogButton:active {
-  transform: translateY(1px);
-}
-
-#migrateFromLocal {
-  width: auto;
-  display: flex;
-  padding-left: 5px;
-  padding-right: 5px;
 }
 
 #placeholder {
@@ -908,96 +846,8 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-#calculator-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-#calculator-container {
-  position: absolute;
-  top: 50%;
-  right: 50%;
-  background: white;
-  padding: 10px;
-  border: 1px solid #ccc;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-}
-
-#calc-display {
-  width: 100%;
-  padding: 10px;
-  font-size: 20px;
-  text-align: right;
-  margin-bottom: 10px;
-  border: none;
-  background: #f2f2f2;
-  color: #333333;
-  transition: 0.3s;
-}
-#calc-display:hover {
-  background: #e6e6e6;
-}
-
-.buttons {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-}
-
-.calc-btn {
-  padding: 30px;
-  font-size: 18px;
-  border: none;
-  background: #d2d2d2;
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  transition: 0.1s;
-}
-.calc-btn:hover {
-  background: #c8c8c8;
-  scale: 1.02;
-}
-.calc-btn:active {
-  background: #b4b4b4;
-  scale: 0.9999999999;
-}
-
-.calc-btn.operator {
-  background: #e6e6e6;
-  color: #3f3f3f;
-}
-.calc-btn.operator:hover {
-  background: #dcdcdc;
-}
-.calc-btn.operator:active {
-  background: #bebebe;
-}
-
-.calc-btn.equal {
-  grid-column: span 4;
-  background: #3584e4;
-  color: #edf4fd;
-  padding: 30px 135px;
-}
-.calc-btn.equal:hover {
-  background: #4990e7;
-}
-.calc-btn.equal:active {
-  background: #2a6ab6;
-}
-
 .hidden {
   display: none;
-}
-
-#changeLogTopBar {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
 }
 
 #title {
@@ -1012,11 +862,6 @@ input:checked + .slider:before {
 }
 #title:hover {
   cursor: pointer;
-}
-
-#changeLogTitle {
-  text-align: left;
-  margin: 40px 40px 0px 40px;
 }
 
 @keyframes popin {
