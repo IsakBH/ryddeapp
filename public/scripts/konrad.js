@@ -6,6 +6,9 @@ const task_difficulty_el = document.getElementById('task-difficulty');
 const task_completion_status_el = document.getElementById('task-completion-status');
 const task_creator_el = document.getElementById('task-creator');
 const new_task_button = document.getElementById('newDocument');
+const leaderboard_list = document.getElementById('leaderboardList');
+const leaderboard_search = document.getElementById('leaderboardSearch');
+
 
 // createTask() form inputs
 const task_name_input = document.getElementById('task-name-input');
@@ -17,19 +20,22 @@ const create_task_form = document.getElementById('create-task-form');
 const cancel_create_task_button = document.getElementById('cancel-create-task')
 
 async function completeTask(e) {
-  e.preventDefault();
-  console.log("jeg har gjort denne oppgaven!");
-  username = prompt("Hva heter du?");
+    e.preventDefault();
+    console.log("jeg har gjort denne oppgaven!");
+    username = prompt("Hva heter du?");
 
-  const completeTask = await fetch("/completeTask", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ id: e.target.dataset.taskid, username }),
-  });
+    if (!username) return; // hvis brukeren er tullete og ombestemmer seg så ikke gjør shit
 
-  displayTasks();
-  //addPoints();
+    const completeTask = await fetch("/completeTask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: e.target.dataset.taskid, username }),
+    });
+
+    displayTasks();
+    displayLeaderboard();
 }
+
 
 new_task_button.addEventListener('click', () => {
     create_task_dialog.showModal();
@@ -166,10 +172,41 @@ async function displayTasks() {
     }
 }
 
+
+async function displayLeaderboard() {
+    const response = await fetch("/getLeaderboard");
+    const leaderboardData = await response.json();
+    leaderboard_list.innerHTML = ""; // fjernet alt dritet som var der før
+
+    if (leaderboardData.length === 0) {
+        leaderboard_list.innerHTML = '<li style="text-align: center; color: #666; padding: 20px;">Umm, bro? Hvorfor prøver du å vise noe når det ikke er noe her????</li>';
+        return;
+    }
+
+    // det faktiske leaderboardet (det som er i)
+    leaderboardData.forEach((user, index) => {
+        const user_li = document.createElement("li");
+        user_li.classList.add("leaderboard-item");
+
+        user_li.innerHTML = `
+            <div class="user">
+                <span class="rank">${index + 1}</span>
+                <img src="/images/default.png" alt="Profilbilde" class="avatar">
+                <span class="name">${user.completerUser}</span>
+            </div>
+            <span class="score">${user.score} poeng</span>
+        `;
+        leaderboard_list.appendChild(user_li);
+    });
+}
+
 function initializer() {
     console.log("kjører displayTasks() funksjon...");
     displayTasks();
     console.log("displayTasks() funksjon er kjørt!");
+    console.log("kjører displayLeaderboard() funksjon");
+    displayLeaderboard();
+    console.log("displayLeaderboard() funksjon er kjørt!");
 }
 
 window.onload = initializer();
