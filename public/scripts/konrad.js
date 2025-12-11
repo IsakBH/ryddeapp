@@ -12,13 +12,28 @@ const task_name_input = document.getElementById('task-name-input');
 const task_description_input = document.getElementById('task-description-input');
 const task_creator_dropdown = document.getElementById('task-creator-dropdown');
 const task_difficulty_dropdown = document.getElementById('task-difficulty-dropdown');
+const create_task_dialog = document.getElementById('create-task-dialog');
+const create_task_form = document.getElementById('create-task-form');
+const cancel_create_task_button = document.getElementById('cancel-create-task')
+
+new_task_button.addEventListener('click', () => {
+    create_task_dialog.showModal();
+})
+
+cancel_create_task_button.addEventListener('click', () => {
+    create_task_dialog.close();
+})
+
+create_task_form.addEventListener('submit', (e) => {
+    createTask(e);
+})
 
 async function createTask(e) {
     e.preventDefault();
     const task_name = task_name_input.value.trim();
     const task_description = task_description_input.value.trim();
-    const task_creator = task_creator_dropdown.value.trim(); // dette skal jo egentlig være en dropdown, så dette er feil, men lar det stå sånn inntil videre
-    const task_difficulty = task_difficulty_dropdown.value.trim(); // dette skal også egentlig være en dropdown, men det er feil, men lar det stå inntil videre.
+    const task_creator = task_creator_dropdown.value.trim();
+    const task_difficulty = task_difficulty_dropdown.value.trim();
     const response = await fetch("/createTask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -29,7 +44,12 @@ async function createTask(e) {
             task_difficulty
         })
     })
-    displayTasks();
+    if (response.ok){
+        create_task_dialog.close();
+        displayTasks();
+    } else {
+        console.error("kunne ikke lage task :( tror noe er feil")
+    }
 }
 
 async function deleteTask(e) {

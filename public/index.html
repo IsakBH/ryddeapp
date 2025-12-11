@@ -52,6 +52,36 @@
             <div class="task-card" id="task-completion-status">Fullføringsstatus</div>
             <div class="task-card" id="task-creator">Oppgavemester</div>
         </div>
+
+        <dialog id="create-task-dialog">
+            <form id="create-task-form">
+                <h3>Ny oppgave</h3>
+                <label for="task-name-input">Oppgavenavn</label>
+                <input type="text" id="task-name-input" required>
+
+                <label for="task-description-input">Beskrivelse</label>
+                <textarea id="task-description-input" required></textarea>
+
+                <label for="task-creator-dropdown">Oppgavemester</label>
+                <select id="task-creator-dropdown">
+                    <option value="Konrad">Konrad</option>
+                    <option value="per89">per89</option>
+                </select>
+
+                <label for="task-difficulty-dropdown">Vanskelighetsgrad</label>
+                <select id="task-difficulty-dropdown">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+
+                <button type="submit">Lag oppgave</button>
+                <button type="button" id="cancel-create-task">Avbryt</button>
+            </form>
+        </dialog>
+
         <!--{
         id: 55,
         difficulty: 3,

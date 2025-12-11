@@ -19,17 +19,10 @@ const db = new sqlite3.Database("./ryddeapp.db", sqlite3.OPEN_READWRITE, (err) =
 });
 
 // legg til oppgave
-app.post("/addTask", (req, res) => {
-  let { taskName, creatorName, taskDescription } = req.body;
-  taskName = taskName.tostring().trim();
-  creatorName = creatorName.tostring().trim();
-  taskDescription = taskDescription.tostring().trim();
+app.post("/createTask", (req, res) => {
+  let { task_name, task_description, task_creator, task_difficulty } = req.body;
 
-  console.log("Forbereder SQL query for /addTask :)");
-
-  db.prepare(
-    "INSERT INTO task (name, creatorname, description) VALUES (?, ?, ?)",
-  ).run(taskName, creatorName, taskDescription);
+  db.prepare("INSERT INTO task (name, description, creatorUser, difficulty) VALUES (?, ?, ?, ?)",).run(task_name, task_description, task_creator, task_difficulty);
 
   return res.sendStatus(201);
 });
