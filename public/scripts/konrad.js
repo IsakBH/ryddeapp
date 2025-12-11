@@ -17,7 +17,18 @@ const create_task_form = document.getElementById('create-task-form');
 const cancel_create_task_button = document.getElementById('cancel-create-task')
 
 async function completeTask(e) {
-    e.preventDefault();
+  e.preventDefault();
+  console.log("jeg har gjort denne oppgaven!");
+  username = prompt("Hva heter du?");
+
+  const completeTask = await fetch("/completeTask", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ id: e.target.dataset.taskid, username }),
+  });
+
+  displayTasks();
+  //addPoints();
 }
 
 new_task_button.addEventListener('click', () => {
@@ -96,7 +107,7 @@ async function displayTasks() {
 
     for (let task of tasks) {
         const task_div = document.createElement("div");
-        console.log("laget divs")
+        //console.log("laget divs")
         const delete_button = document.createElement("button");
         delete_button.innerHTML = '<i class="fa-solid fa-trash"></i>'
         delete_button.addEventListener('click', (e) => {
@@ -121,19 +132,24 @@ async function displayTasks() {
 
         const nameSpan = document.createElement("span");
 
-        console.log("laget span element")
+        //console.log("laget span element")
         task_div.classList.add("task");
+
         nameSpan.classList.add("task-name");
-        console.log("laget til class")
+        //console.log("laget til class")
 
         task_div.addEventListener("click", () => loadTask(task.id));
 
-        console.log("lagt til eventlistener");
+        //console.log("lagt til eventlistener");
 
         nameSpan.textContent = task.name;
         task_div.appendChild(nameSpan);
-        task_div.appendChild(complete_button);
-        task_div.appendChild(delete_button);
+        if (task.completed) {
+            task_div.classList.add("completed-task");
+        } else {
+            task_div.appendChild(complete_button);
+            task_div.appendChild(delete_button);
+        }
 
         task_list.appendChild(task_div);
 

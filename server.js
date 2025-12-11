@@ -23,7 +23,7 @@ app.post("/completeTask", (req, res) => {
     const currentTime = new Date().toLocaleString();
     console.log(currentTime);
 
-    const sql = "UPDATE task SET completed = ?, completerUser = ? WHERE id = ?".run(currentTime, username, id);
+    db.prepare("UPDATE task SET completed = ?, completerUser = ? WHERE id = ?").run(currentTime, username, id);
     console.log("hei, jeg heter /completeTask og jeg fikk", currentTime, id, username);
     return res.sendStatus(200);
 })
@@ -48,7 +48,7 @@ app.post("/createTask", (req, res) => {
 
 // hent oppgaver
 app.get("/getTasks", (req, res) => {
-  sql = "SELECT * FROM task";
+  sql = "SELECT * FROM task ORDER BY completed";
   db.all(sql, [], (err, rows) => {
     if (err) return console.error(err.message);
     res.json(rows);

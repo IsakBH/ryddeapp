@@ -7,6 +7,21 @@
   font-family: "Poppins", sans-serif;
 }
 
+.completed-task.task {
+    background-color: #e0f3e4;
+    border-color: #C9DACD;
+}
+
+.completed-task.task:hover {
+    background-color: #CDECD5;
+    border-color: #C9DACD;
+}
+
+.task.completed-task.active-task {
+    border: 2px solid #7befb2;
+    background-color: #CDECD5;
+}
+
 #text-description-input {
     resize: none;
     height: fit-content;
