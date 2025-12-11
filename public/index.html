@@ -60,7 +60,7 @@
                 <input type="text" id="task-name-input" required>
 
                 <label for="task-description-input">Beskrivelse</label>
-                <textarea id="task-description-input" required></textarea>
+                <input id="task-description-input" required></input>
 
                 <label for="task-creator-dropdown">Oppgavemester</label>
                 <select id="task-creator-dropdown">
@@ -73,12 +73,12 @@
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
                 </select>
 
-                <button type="submit">Lag oppgave</button>
-                <button type="button" id="cancel-create-task">Avbryt</button>
+                <div id="knappediv">
+                    <button type="submit">Lag oppgave</button>
+                    <button type="button" id="cancel-create-task">Avbryt</button>
+                </div>
             </form>
         </dialog>
 

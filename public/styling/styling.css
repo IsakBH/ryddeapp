@@ -7,12 +7,31 @@
   font-family: "Poppins", sans-serif;
 }
 
+#text-description-input {
+    resize: none;
+    height: fit-content;
+}
+
 dialog {
-    margin: auto auto;
+    margin: auto;
     border-radius: 10px;
     border: none;
     filter: drop-shadow(0 0 15px black);
     padding: 30px;
+}
+
+dialog select {
+    background-color: #FFB9BC;
+}
+
+dialog button {
+    width: 100px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+#knappediv {
+    display: flex;
 }
 
 ::selection {
@@ -111,7 +130,6 @@ button:active {
 }
 
 select {
-  color: #020929;
   background-color: rgb(218.75, 233.25, 247.75);
   padding: 7px;
   text-decoration: none;
@@ -120,14 +138,11 @@ select {
   transition: transform 0.2s ease;
 }
 select:hover {
-  background-color: rgb(197.5, 220.5, 243.5);
   transform: translateY(-2px);
   box-shadow: 0px 2px 2px #ccc;
-  border-color: #C5D2DF;
 }
 select:active {
   transform: translateY(3px);
-  background-color: rgb(176.25, 207.75, 239.25);
 }
 
 option {
@@ -630,8 +645,6 @@ input[type=file]::file-selector-button {
   height: 30px;
   padding: 0;
   font-size: 0.8rem;
-  background: #FFEAEB;
-  border: 1px solid #ddd;
 }
 .document-actions button:hover {
   background: #ff4444;
@@ -981,28 +994,6 @@ input:checked + .slider:before {
   display: none;
 }
 
-.commit {
-  border: 1px solid #ddd;
-  margin: 10px 40px;
-  padding: 15px;
-  border-radius: 10px;
-  filter: drop-shadow(0px 0px 5px #ccc);
-  background-color: #f0f8ff;
-}
-
-.commit-date {
-  color: #666;
-  font-size: 0.9em;
-}
-
-.commit-message {
-  margin: 10px 0;
-}
-
-.commit-author {
-  color: #0366d6;
-}
-
 #changeLogTopBar {
   display: flex;
   width: 100%;
@@ -1026,468 +1017,6 @@ input:checked + .slider:before {
 #changeLogTitle {
   text-align: left;
   margin: 40px 40px 0px 40px;
-}
-
-#changeLogBackButton {
-  text-align: left;
-  margin: 40px 40px 0px 40px;
-  text-decoration: none;
-  color: black;
-  padding: 5px;
-  border: 1px solid black;
-  border-radius: 5px;
-  transition: 0.2s;
-  text-align: center;
-  display: flex;
-  align-items: center;
-}
-#changeLogBackButton:hover {
-  transform: translateY(-1px);
-  background: rgb(214.5, 236.1, 255);
-}
-#changeLogBackButton:active {
-  transform: translateY(0px);
-  background: rgb(189, 224.2, 255);
-}
-
-.admin-container {
-  background-color: #ffffff;
-  width: 75%;
-  height: 75%;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-#admin-profile-picture {
-  width: 20vw;
-  height: 20vw;
-}
-
-#top-admin {
-  display: flex;
-}
-
-#admin-username {
-  font-weight: bold;
-  font-size: 3rem;
-}
-
-.floating-mode .container {
-  height: 98%;
-  border-radius: 10px;
-}
-.floating-mode .document-manager {
-  position: fixed;
-  margin-left: 9px;
-  top: 50%;
-  height: 98%;
-  transform: translateY(-50%);
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-}
-
-.green-theme {
-  background-image: url("../assets/ordlogo-grønn.png");
-  background-repeat: repeat;
-  background-size: 20% auto;
-}
-.green-theme #title {
-  background: linear-gradient(to right, #7befb2, #63d89e 30%, #4fc78e, #3da878);
-  background-clip: text;
-}
-.green-theme #shared-text-input {
-  background-color: #F2FAF4;
-  border-color: #C9DACD;
-}
-.green-theme #shared-options {
-  background-color: #F2FAF4;
-  border-color: #C9DACD;
-  scrollbar-color: #7BEFB2 transparent;
-}
-.green-theme .text-input {
-  background-color: #F2FAF4;
-  border-color: #C9DACD;
-  scrollbar-color: #41BC9F transparent;
-  color: #040002;
-}
-.green-theme .text-input ::-webkit-scrollbar-thumb {
-  background-color: #41bc9f;
-}
-.green-theme .text-input a {
-  color: #41BC9F;
-}
-.green-theme .options {
-  background-color: #F2FAF4;
-  border-color: #C9DACD;
-}
-.green-theme .options button, .green-theme .options select {
-  background-color: #E0F3E4;
-  border-color: #C9DACD;
-}
-.green-theme .options button:hover, .green-theme .options select:hover {
-  background-color: #CDECD5;
-}
-.green-theme hr {
-  color: #E0F3E4;
-  text-decoration: none;
-}
-.green-theme .menu-toggle {
-  background-color: #7befb2;
-  color: #040002;
-}
-.green-theme .menu-toggle:hover {
-  background-color: #41bc9f;
-}
-.green-theme ::selection {
-  background-color: #7befb2;
-}
-.green-theme .new-doc-button {
-  background-color: #7BEFB2;
-  color: #040002;
-}
-.green-theme .new-doc-button:hover {
-  background-color: #41BC9F;
-}
-
-.green-theme #documentsList li.active-document {
-  border: 2px solid #7befb2;
-  background-color: #E0F3E4;
-}
-.green-theme #documentsList li.active-document:active {
-  border-color: #41BC9F;
-  background-color: #cbf2d4;
-}
-.green-theme #documentsList li .document-actions button:hover {
-  background-color: #ff4444;
-  border-color: rgb(144.5, 0, 0);
-  color: #020929;
-}
-.green-theme #documentsList li .document-actions #shareButton:hover {
-  background-color: #41BC9F;
-  border-color: rgb(45.3458498024, 131.1541501976, 110.9229249012);
-}
-.green-theme .document-manager {
-  scrollbar-color: #7befb2 transparent;
-}
-.green-theme .document-manager ::-webkit-scrollbar-thumb {
-  background-color: #41bc9f;
-}
-.green-theme #shareButton:hover {
-  background-color: #7befb2;
-}
-.green-theme button:hover {
-  background-color: #41bc9f;
-}
-.green-theme select:hover {
-  background-color: #41bc9f;
-}
-.green-theme .profile-dropdown a:hover {
-  color: #41bc9f;
-  background-color: #F0FCF6;
-}
-.green-theme #logoutIndex:hover {
-  color: #FF002F;
-  background-color: #FCF0F6;
-}
-.green-theme .auth-container {
-  border-color: #7befb2;
-}
-.green-theme .auth-container a {
-  color: #41bc9f;
-}
-.green-theme .auth-container a:hover {
-  color: #7befb2;
-  text-decoration: none;
-}
-.green-theme input[type=text],
-.green-theme input[type=password] {
-  border-color: #7befb2;
-}
-.green-theme input[type=text]:hover,
-.green-theme input[type=password]:hover {
-  border-color: #41bc9f;
-}
-.green-theme input[type=text]:focus,
-.green-theme input[type=password]:focus {
-  border-color: #41bc9f;
-}
-.green-theme input[type=file] {
-  border-color: #7befb2;
-}
-.green-theme input[type=file]::file-selector-button {
-  background-color: #7befb2;
-}
-.green-theme input[type=file]::file-selector-button:hover {
-  background-color: #41bc9f;
-}
-.green-theme input[type=color] {
-  border-color: #C9DACD;
-}
-.green-theme #submit {
-  background-color: #7befb2;
-  color: #040002;
-}
-.green-theme #submit:hover {
-  background-color: #41bc9f;
-}
-.green-theme input:checked + .slider {
-  background-color: #7befb2;
-}
-.green-theme input:checked + .slider:hover {
-  background-color: #41bc9f;
-}
-.green-theme .container .active {
-  background-color: #BBE5C5;
-}
-.green-theme #documentSearch {
-  border-color: #DDDDDD;
-}
-
-.dark-theme {
-  background-image: url("../assets/ordpanettbanner-dark.png");
-  backdrop-filter: none;
-  background-color: #0d1117;
-  color: #ffffff;
-}
-.dark-theme input[type=color] {
-  border: 1px solid #3d444d;
-}
-.dark-theme #shared-text-input {
-  border-color: #3D444D;
-  background-color: #212830;
-  scrollbar-color: #1F6FEB transparent;
-}
-.dark-theme #shared-options {
-  background-color: #212830;
-  border-color: #3D444D;
-  scrollbar-color: #1F6FEB transparent;
-}
-.dark-theme #shared-profile-picture {
-  width: 32px;
-  height: 32px;
-}
-.dark-theme #read-only-status {
-  color: #ffffff;
-  text-shadow: 1px 1px 2px #3D444D;
-}
-.dark-theme #bottomtext a {
-  color: white;
-}
-.dark-theme #shareButton:hover {
-  background: #1F6FEB;
-}
-.dark-theme a {
-  color: #8ac8ff;
-}
-.dark-theme ::selection {
-  background-color: #1F6FEB;
-}
-.dark-theme::before {
-  background: rgba(0, 0, 0, 0.4);
-}
-.dark-theme .options {
-  border: 1px solid #3D444D;
-  background-color: #212830;
-}
-.dark-theme .options button {
-  background-color: rgb(43.3888888889, 52.5925925926, 63.1111111111);
-  color: #ffffff;
-  border-color: #3d444d;
-}
-.dark-theme .options button:hover {
-  background-color: rgb(53.3443396226, 65.75, 78.1556603774);
-  border-color: rgb(38.8622641509, 47.9, 56.9377358491);
-  box-shadow: 0px 2px 2px rgb(151.8888888889, 166.9259259259, 184.1111111111);
-}
-.dark-theme .options select {
-  background-color: rgb(43.3888888889, 52.5925925926, 63.1111111111);
-  color: #ffffff;
-  border-color: #3d444d;
-}
-.dark-theme .options select:hover {
-  background-color: #151b23;
-}
-.dark-theme .commit {
-  filter: none;
-}
-.dark-theme #changelogButton {
-  background-color: #151B23;
-}
-.dark-theme #changeLogBackButton {
-  color: #ffffff;
-  border: 1px solid white;
-}
-.dark-theme #changeLogBackButton:hover {
-  background: #3c434c;
-}
-.dark-theme #changeLogBackButton:active {
-  background: rgb(37.5, 41.875, 47.5);
-}
-.dark-theme .container {
-  background-color: #0d1117;
-  filter: none;
-  border: 1px solid #3d444d;
-  color: #ffffff;
-}
-.dark-theme #text-input {
-  background-color: #212830;
-  color: #ffffff;
-  border-color: #3d444d;
-  scrollbar-color: #1f6feb transparent;
-}
-.dark-theme #text-input ::-webkit-scrollbar-thumb {
-  background-color: #367eed;
-}
-.dark-theme .document-manager {
-  background-color: #0D1117;
-  border-color: #3d444d;
-  color: #ffffff !important;
-  scrollbar-color: #1F6FEB transparent;
-}
-.dark-theme .document-manager ::-webkit-scrollbar-thumb {
-  background-color: #367eed;
-}
-.dark-theme .document-manager h3 {
-  color: #ffffff;
-}
-.dark-theme #documentsList li {
-  background-color: #212830;
-  border-color: #3d444d;
-  color: #ffffff;
-}
-.dark-theme #documentsList li:hover {
-  box-shadow: 4px 0px 0px 0px #1F6FEB;
-  filter: drop-shadow(0 0 7px #1F6FEB);
-  border-color: #1F6FEB;
-  background: rgb(44.4457831325, 53.5963855422, 64.0542168675);
-  width: 95%;
-}
-.dark-theme #documentsList li.active-document {
-  border: 2px solid #1F6FEB;
-  background: rgb(44.4457831325, 53.5963855422, 64.0542168675);
-  filter: drop-shadow(0 0 7px #1F6FEB);
-  box-shadow: 4px 0px 0px 0px #1F6FEB;
-  animation: aktivt-dokument 0.5s;
-  animation-fill-mode: forwards;
-}
-.dark-theme .document-item span {
-  color: #ffffff;
-}
-.dark-theme #documentSearch {
-  background-color: #212830;
-  border-color: #3d444d;
-  color: #ffffff;
-}
-.dark-theme #documentSearch:hover {
-  background: rgb(44.4457831325, 53.5963855422, 64.0542168675);
-}
-.dark-theme #splashText {
-  background-color: rgba(21, 27, 35, 0.5);
-}
-.dark-theme .profile-dropdown {
-  background-color: #0d1117;
-  border-color: #3d444d;
-  color: #ffffff;
-}
-.dark-theme .profile-dropdown a {
-  color: #ffffff;
-}
-.dark-theme .profile-dropdown a:hover {
-  background-color: #1F232A;
-  color: #1F6FEB;
-}
-.dark-theme hr {
-  color: #3d444d;
-}
-.dark-theme .profile-settings {
-  background-color: #0d1117;
-  border: 1px solid #3d444d;
-  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
-}
-.dark-theme .current-profile {
-  transition: 0.4s;
-}
-.dark-theme .current-profile img {
-  filter: drop-shadow(0px 0px 10px #3d444d);
-}
-.dark-theme input[type=file]::file-selector-button {
-  background-color: #1f6feb;
-}
-.dark-theme input[type=file]::file-selector-button:hover {
-  background-color: rgb(36, 152.0512820513, 255);
-}
-.dark-theme #submit,
-.dark-theme #newDocument {
-  background-color: #1f6feb;
-  color: #ffffff;
-}
-.dark-theme #submit:hover,
-.dark-theme #newDocument:hover {
-  background-color: rgb(36, 152.0512820513, 255);
-  box-shadow: 0px 2px 2px #1f6feb;
-}
-.dark-theme #logout,
-.dark-theme #delete-account {
-  background-color: #ff002f;
-}
-.dark-theme #logout:hover,
-.dark-theme #delete-account:hover {
-  background-color: #ff4444;
-}
-.dark-theme #logoutIndex:hover {
-  color: #FF002F;
-}
-.dark-theme input:checked + .slider {
-  background-color: #1f6feb;
-}
-.dark-theme input:checked + .slider:hover {
-  background-color: rgb(36, 152.0512820513, 255);
-}
-.dark-theme #save-status {
-  color: #ffffff;
-}
-.dark-theme #backButton {
-  background-color: #0d1117;
-  color: #ffffff;
-  text-decoration: none;
-  text-align: center;
-  box-shadow: 0px 0px 5px #cccccc;
-}
-.dark-theme .auth-container {
-  background-color: #0d1117;
-  border: 1px solid #3d444d;
-}
-.dark-theme input[type=text],
-.dark-theme input[type=password] {
-  background-color: #212830;
-  border: 1px solid #3d444d;
-  color: #ffffff;
-}
-.dark-theme input[type=text]:hover,
-.dark-theme input[type=password]:hover {
-  border: 1px solid #1f6feb;
-}
-.dark-theme input[type=text]:focus,
-.dark-theme input[type=password]:focus {
-  border: 1px solid #1f6feb;
-}
-.dark-theme input[type=file] {
-  border: 1px solid #3d444d;
-  background-color: #212830;
-}
-.dark-theme input[type=file]:hover {
-  border: 1px solid #1f6feb;
-}
-.dark-theme .menu-toggle {
-  background-color: #1f6feb;
-}
-.dark-theme .menu-toggle:hover {
-  background-color: #2498ff;
-}
-
-.lightmode body {
-  background-color: white;
 }
 
 @keyframes popin {
@@ -1532,5 +1061,3 @@ input:checked + .slider:before {
     width: 95%;
   }
 }
-
-/*# sourceMappingURL=texteditor.css.map */

@@ -100,9 +100,20 @@ async function displayTasks() {
             deleteTask(e);
         })
 
+        const complete_button = document.createElement("button");
+        complete_button.innerHTML = '<i class="fa-solid fa-check"></i>';
+        complete_button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            completeTask(e);
+        })
+
         task_div.dataset.taskid = task.id;
         task_div.setAttribute("id", task.id);
-        delete_button.dataset.taskid = task.id
+        delete_button.dataset.taskid = task.id;
+        complete_button.dataset.taskid = task.id;
+
+        delete_button.classList.add("document-actions");
+        complete_button.classList.add("document-actions");
 
         const nameSpan = document.createElement("span");
 
@@ -117,6 +128,7 @@ async function displayTasks() {
 
         nameSpan.textContent = task.name;
         task_div.appendChild(nameSpan);
+        task_div.appendChild(complete_button);
         task_div.appendChild(delete_button);
 
         task_list.appendChild(task_div);

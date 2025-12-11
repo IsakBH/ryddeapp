@@ -24,6 +24,8 @@ app.post("/createTask", (req, res) => {
 
     const sql = "INSERT INTO task (name, description, creatorUser, difficulty) VALUES (?, ?, ?, ?)";
 
+    // hvorfor FANKEN funker dette ikke :( kanskje jeg må legge til ordentlig error handling hahaha
+    // senere isak: det var error handling
     db.run(sql, [task_name, task_description, task_creator, task_difficulty], (err) => {
         if (err) {
             console.error(err.message);
