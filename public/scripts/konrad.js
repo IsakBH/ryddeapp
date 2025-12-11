@@ -16,6 +16,10 @@ const create_task_dialog = document.getElementById('create-task-dialog');
 const create_task_form = document.getElementById('create-task-form');
 const cancel_create_task_button = document.getElementById('cancel-create-task')
 
+async function completeTask(e) {
+    e.preventDefault();
+}
+
 new_task_button.addEventListener('click', () => {
     create_task_dialog.showModal();
 })

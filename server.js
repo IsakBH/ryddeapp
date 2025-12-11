@@ -18,6 +18,16 @@ const db = new sqlite3.Database("./ryddeapp.db", sqlite3.OPEN_READWRITE, (err) =
   if (err) return console.error(err.message);
 });
 
+app.post("/completeTask", (req, res) => {
+    const { id, username } = req.body;
+    const currentTime = new Date().toLocaleString();
+    console.log(currentTime);
+
+    const sql = "UPDATE task SET completed = ?, completerUser = ? WHERE id = ?".run(currentTime, username, id);
+    console.log("hei, jeg heter /completeTask og jeg fikk", currentTime, id, username);
+    return res.sendStatus(200);
+})
+
 // legg til oppgave
 app.post("/createTask", (req, res) => {
     const { task_name, task_description, task_creator, task_difficulty } = req.body;
