@@ -10,6 +10,8 @@ const leaderboard_list = document.getElementById('leaderboardList');
 const leaderboard_search = document.getElementById('leaderboardSearch');
 const menuToggle = document.querySelector('.menu-toggle');
 const documentManager = document.querySelector('.document-manager')
+const menuToggleRight = document.querySelector('.menu-toggle-right');
+const leaderboard = document.querySelector('.leaderboard');
 
 
 // createTask() form inputs
@@ -23,6 +25,10 @@ const cancel_create_task_button = document.getElementById('cancel-create-task')
 
 menuToggle.addEventListener('click', () => {
     documentManager.classList.toggle('active');
+});
+
+menuToggleRight.addEventListener('click', () => {
+    leaderboard.classList.toggle('active');
 });
 
 async function completeTask(e) {

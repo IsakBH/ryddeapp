@@ -7,6 +7,22 @@
   font-family: "Poppins", sans-serif;
 }
 
+.menu-toggle-right {
+    display: block;
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    z-index: 1001;
+    background: #8ac8ff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 200px;
+}
+.menu-toggle-right:hover {
+  background-color: #e2e7ea;
+}
+
 .completed-task.task {
     background-color: #e0f3e4;
     border-color: #C9DACD;
@@ -788,36 +804,56 @@ input[type=file]::file-selector-button {
 }
 
 @media screen and (max-width: 1500px) {
-  .document-manager {
-    position: fixed;
-    left: -250px;
-    transition: left 0.3s ease;
-    z-index: 1000;
-    padding-top: 60px;
-  }
-  .document-manager.active {
-    left: 0;
-  }
-  .menu-toggle {
-    display: block;
-    position: fixed;
-    left: 10px;
-    top: 10px;
-    z-index: 1001;
-    background: #8ac8ff;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 200px;
-  }
-  .menu-toggle:hover {
-    background-color: #e2e7ea;
-  }
-  .container {
-    width: 100vmin;
-    height: 100%;
-  }
+    .document-manager {
+        position: fixed;
+        left: -250px;
+        transition: left 0.3s ease;
+        z-index: 1000;
+        padding-top: 60px;
+    }
+    .document-manager.active {
+        left: 0;
+    }
+    .menu-toggle {
+        display: block;
+        position: fixed;
+        left: 10px;
+        top: 10px;
+        z-index: 1001;
+        background: #8ac8ff;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 200px;
+    }
+    .menu-toggle:hover {
+        background-color: #e2e7ea;
+    }
+
+    /* * ADD THE LEADERBOARD TOGGLE LOGIC HERE
+     */
+    .leaderboard { /* This is the element that gets moved */
+        position: fixed;
+        right: -250px; /* Hide off-screen to the right */
+        transition: right 0.3s ease; /* Animate its movement */
+        z-index: 1000;
+        padding-top: 60px;
+    }
+
+    .leaderboard.active { /* The state when the toggle is pressed */
+        right: 0;
+    }
+
+    .menu-toggle-leaderboard { /* Make sure the button shows up */
+        display: block;
+    }
+
+    .container {
+        width: 100vmin;
+        height: 100%;
+    }
 }
+
 @media screen and (max-width: 1318px) {
   #splashText {
     display: none;
