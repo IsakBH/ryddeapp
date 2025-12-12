@@ -8,6 +8,8 @@ const task_creator_el = document.getElementById('task-creator');
 const new_task_button = document.getElementById('newDocument');
 const leaderboard_list = document.getElementById('leaderboardList');
 const leaderboard_search = document.getElementById('leaderboardSearch');
+const menuToggle = document.querySelector('.menu-toggle');
+const documentManager = document.querySelector('.document-manager')
 
 
 // createTask() form inputs
@@ -18,6 +20,10 @@ const task_difficulty_dropdown = document.getElementById('task-difficulty-dropdo
 const create_task_dialog = document.getElementById('create-task-dialog');
 const create_task_form = document.getElementById('create-task-form');
 const cancel_create_task_button = document.getElementById('cancel-create-task')
+
+menuToggle.addEventListener('click', () => {
+    documentManager.classList.toggle('active');
+});
 
 async function completeTask(e) {
     e.preventDefault();
