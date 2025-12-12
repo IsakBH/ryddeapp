@@ -86,6 +86,24 @@ app.delete("/deleteTask", (req, res) => {
   }
 });
 
+app.get("/getLeaderboard", (req, res) => {
+    const sql = `
+      SELECT completerUser, SUM(difficulty) as score
+      FROM task
+      WHERE completerUser IS NOT NULL AND completerUser != ''
+      GROUP BY completerUser
+      ORDER BY score DESC
+    `;
+    db.all(sql, [], (err, rows) => {
+      if (err) {
+        console.error(err.message);
+        res.status(500).json({ error: "kunne ikke hente noe data fra leaderboardet :(" });
+        return;
+      }
+      res.json(rows);
+    });
+  });
+
 // server listener på port 1488 (http://localhost:1488)
 const port = "1488";
 app.listen(port);
