@@ -1,6 +1,8 @@
-const sqlite3 = require("sqlite3").verbose();
+const sqlite3 = require("better-sqlite3");
 const express = require("express");
+const session = require("express-session");
 const path = require("path");
+const bcrypt = require("bcrypt");
 const app = express();
 let sql;
 app.use(express.urlencoded({ extended: false }));
@@ -14,8 +16,18 @@ function logger(req, res, next) {
 }
 app.use(logger);
 
+function requireAuth(req, res, next) {
+    let isLoggedIn = req.session && req.session.user;
+
+    if (!isLoggedIn) {
+        return res.redirect("/login.html");
+    }
+
+    next();
+}
+
 // root
-app.get("/", (req, res) => {
+app.get("/", requireAuth(), (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
@@ -110,36 +122,36 @@ app.get("/getLeaderboard", (req, res) => {
     });
   });
 
+
+
 app.post("/login", (req, res) => {
     let username = req.body.username;
     var password = req.body.password;
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-/*
+
     if (!username || !password) {
+        console.log("du mangler visst username eller password, ikke kult bro, lock in")
         return res.status(400).send("du mangler visst username eller password")
     }
 
-    const user = data.getUser(username)
+    const user = getUser(username)
     if (!user) {
-        return res.redirect("/login.html?error=invalid");
+        console.log("heisann. brukeren du skrev inn finnes faktisk ikke, så det er faktisk bare å drepe segselv");
+        return res.sendFile(path.join(__dirname, "public", "/login.html?error=invalid"));
     }
 
-    var ok = bcrypt.compareSync(password, user.passwordHash);
+    let ok = bcrypt.compareSync(password, user.password);
     if (!ok) {
         return res.redirect("/login.html?error=invalid")
     }
 
-    req.session.user = { id= user.id, username: user.username, role: user.role };
-
-    if (user.role === "admin") {
-        console.log("oisann, du var admin, det er kult! nesten like kult som ord på nett!");
-        return res.redirect("/admin.html");
-    } else {
-        console.log("du var ikke en kul admin...")
-        return res.redirect("/index.html");
-    }
-*/
+    req.session.user = { id: user.id, username: user.username };
 })
+
+function getUser(username) {
+    const sql = db.prepare('SELECT id, username, password FROM user WHERE username = ?;');
+    let user = sql.get(username);
+    return user;
+}
 
 // server listener på port 1488 (http://localhost:1488)
 const port = "1488";
