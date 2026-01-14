@@ -110,6 +110,37 @@ app.get("/getLeaderboard", (req, res) => {
     });
   });
 
+app.post("/login", (req, res) => {
+    let username = req.body.username;
+    var password = req.body.password;
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+/*
+    if (!username || !password) {
+        return res.status(400).send("du mangler visst username eller password")
+    }
+
+    const user = data.getUser(username)
+    if (!user) {
+        return res.redirect("/login.html?error=invalid");
+    }
+
+    var ok = bcrypt.compareSync(password, user.passwordHash);
+    if (!ok) {
+        return res.redirect("/login.html?error=invalid")
+    }
+
+    req.session.user = { id= user.id, username: user.username, role: user.role };
+
+    if (user.role === "admin") {
+        console.log("oisann, du var admin, det er kult! nesten like kult som ord på nett!");
+        return res.redirect("/admin.html");
+    } else {
+        console.log("du var ikke en kul admin...")
+        return res.redirect("/index.html");
+    }
+*/
+})
+
 // server listener på port 1488 (http://localhost:1488)
 const port = "1488";
 app.listen(port);
