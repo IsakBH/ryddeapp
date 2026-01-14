@@ -8,6 +8,12 @@ app.use(express.static("public"));
 app.use('/images', express.static(path.join(__dirname, 'assets')));
 app.use(express.json());
 
+function logger(req, res, next) {
+    console.log("Hei! Dette er skrevet av logger :D  --- " + req.method + " " + req.url);
+    next();
+}
+app.use(logger);
+
 // root
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
