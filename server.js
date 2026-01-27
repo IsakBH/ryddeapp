@@ -157,3 +157,16 @@ function getUser(username) {
 const port = "1488";
 app.listen(port);
 console.log("yo, jeg kjører på http://localhost:" + port);
+
+/* ØVING TIL PRØVE:
+function siteStatus(req, res, next) {
+
+    if(req.isMaintananceMode === "true") {
+        return res.redirect("/public/pages/status/maintanance.html");
+    } else {
+    return next();
+    }
+}
+
+app.use(siteStatus)
+*/
